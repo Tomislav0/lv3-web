@@ -9,7 +9,7 @@
             @if (!$my_projects->isEmpty())
             <h2 class="text-center">Moji projekti </h2>
             @foreach ($my_projects as $project)
-                <div class="col-md-4">
+                <div class="col-md-4" onclick="redirectToEdit({{ $project->id }})">
                     <div class="card mb-4">
                         <div class="card-body">
                             <h5 class="card-title">{{ $project->name }}</h5>
@@ -23,7 +23,7 @@
             @if (!$foreign_projects->isEmpty())
                 <h2 class="text-center">Projekti u kojima sudjelujem </h2>
                 @foreach ($foreign_projects as $project)
-                    <div class="col-md-4">
+                    <div class="col-md-4" onclick="redirectToEdit({{ $project->id }})">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $project->name }}</h5>
@@ -37,3 +37,9 @@
     </div>
 </div>
 @endsection
+
+<script>
+    function redirectToEdit(projectId) {
+        window.location.href = "/project/" + projectId ;
+    }
+</script>

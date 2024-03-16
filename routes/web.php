@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Projects\ProjectsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -9,3 +10,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/project/create', [ProjectsController::class, 'create'])->name('projects.create');
+Route::post('/projects', [ProjectsController::class, 'store'])->name('projects.store');
+
+Route::get('/profile', [ProjectsController::class, 'index'])->name('profile');

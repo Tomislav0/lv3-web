@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->boolean('jobs_done')->default(false);
             $table->date('started');
             $table->date('finished')->nullable();
+            $table->bigInteger('leader');
         });
     }
 
